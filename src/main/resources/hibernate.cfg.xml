@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!--  Dialecte MySQL moderne -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!--  Connexion JDBC -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/base?useSSL=false&amp;serverTimezone=UTC&amp;zeroDateTimeBehavior=convertToNull
+        </property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!--  Affichage SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!--  Création / mise à jour automatique du schéma -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--  Encodage UTF-8 (recommandé) -->
+        <property name="hibernate.connection.charSet">UTF-8</property>
+
+        <!--  Mapping des entités -->
+        <mapping class="entities.Salle"/>
+        <mapping class="entities.Machine"/>
+
+    </session-factory>
+</hibernate-configuration>
